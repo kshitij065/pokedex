@@ -1,4 +1,4 @@
-const names = ['John', 'Jane', 'Mike', 'Sarah', 'David', 'Emily', 'Chris', 'Emma', 'James', 'Olivia'];
+const names = ['pikachu', 'Jane', 'Mike', 'Sarah', 'David', 'Emily', 'Chris', 'Emma', 'James', 'Olivia'];
 const images = [
   'https://via.placeholder.com/200',
   'https://via.placeholder.com/200/FF0000/FFFFFF',
