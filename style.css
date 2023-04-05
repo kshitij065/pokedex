@@ -1,16 +1,37 @@
-const names = ['pikachu', 'Jane', 'Mike', 'Sarah', 'David', 'Emily', 'Chris', 'Emma', 'James', 'Olivia'];
-const images = [
-  'https://imgs.search.brave.com/v3U0ub1R103fmMgrYklwZMrIlpnhlMrZbI5UUQpV3hw/rs:fit:1080:1080:1/g:ce/aHR0cHM6Ly93d3cu/bmludGVuZG93b3Js/ZHJlcG9ydC5jb20v/bWVkaWEvMzgxODMv/NC8xLmpwZw',
-  'https://via.placeholder.com/200/FF0000/FFFFFF',
-  'https://via.placeholder.com/200/0000FF/FFFFFF',
-  'https://via.placeholder.com/200/FFFF00/000000',
-  'https://via.placeholder.com/200/00FF00/000000',
-  'https://via.placeholder.com/200/FFFFFF/000000'
+const pokemonList = [
+  {
+    name: 'Bulbasaur',
+    image: 'https://img.pokemondb.net/artwork/bulbasaur.jpg',
+    type: ['Grass', 'Poison'],
+    description: 'A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.'
+  },
+  {
+    name: 'Charmander',
+    image: 'https://img.pokemondb.net/artwork/charmander.jpg',
+    type: ['Fire'],
+    description: 'The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is happy, and blazes when it is enraged.'
+  },
+  {
+    name: 'Squirtle',
+    image: 'https://img.pokemondb.net/artwork/squirtle.jpg',
+    type: ['Water'],
+    description: 'When it retracts its long neck into its shell, it squirts out water with vigorous force.'
+  }
 ];
 
-function generate() {
-  const randomName = names[Math.floor(Math.random() * names.length)];
-  const randomImage = images[Math.floor(Math.random() * images.length)];
-  document.getElementById('random-name').textContent = randomName;
-  document.getElementById('random-image').setAttribute('src', randomImage);
+const pokemonListElement = document.getElementById('pokemon-list');
+
+function renderPokemonList() {
+  pokemonList.forEach(pokemon => {
+    const pokemonElement = document.createElement('li');
+    pokemonElement.innerHTML = `
+      <img src="${pokemon.image}" alt="${pokemon.name}">
+      <h2>${pokemon.name}</h2>
+      <p>Type: ${pokemon.type.join(', ')}</p>
+      <p>${pokemon.description}</p>
+    `;
+    pokemonListElement.appendChild(pokemonElement);
+  });
 }
+
+renderPokemonList();
